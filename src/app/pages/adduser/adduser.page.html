@@ -1,0 +1,22 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>adduser</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+
+  <div class="form">
+    <form [formGroup]="myForm" (ngSubmit)="submitForm()">
+      <ion-list>
+        <form-default-input label="Name" formControlName="name"></form-default-input>
+        <ion-item>
+          <ion-label fixed>Birthdate</ion-label>
+          <ion-input type="Date" formControlName="birthdate"></ion-input>
+        </ion-item>
+      </ion-list>
+      <app-form-camera (pictureTaken)="handlePictureTaken($event)"></app-form-camera>
+      <button ion-button full type="submit" [disabled]="!myForm.valid">Submit</button>
+    </form>
+  </div>
+</ion-content>
